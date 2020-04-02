@@ -1,3 +1,4 @@
+require("dotenv").config();
 const crypto = require('crypto')
 const ursa = require('ursa')
 const prompt = require('prompt')
@@ -9,6 +10,8 @@ var fs = require('fs');
 const child_process = require('child_process');
 let existingKeys = [];
 
+// Create table if not exists
+models.Keys.sync();  
 var schema = {
   properties: {
     password: {
@@ -341,6 +344,7 @@ getDbPassword = () => {
     getMasterPassword(resolve, reject);
   });
 };
+
 
 if (process.argv.length == 2) {
   console.log("Running in dev mode.")

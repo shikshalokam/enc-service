@@ -1,10 +1,11 @@
+require("dotenv").config();
 const express = require("express");
 const http = require('http');
 const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser");
-const port = process.env.PORT || 8013;
-const env = process.env.NODE_ENV || "development";
+const port = process.env.PORT;
+const env = process.env.NODE_ENV;
 const morgan = require("morgan");
 const config = require("./config/config.js")[env];
 const fs = require("fs");
